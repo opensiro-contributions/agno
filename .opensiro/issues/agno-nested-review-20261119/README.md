@@ -17,3 +17,7 @@
 - [Public fork GitHub Issue draft — NOT PUBLISHED](fork-issue-draft.md)
 
 The earlier [plan-only case](https://github.com/opensiro-contributions/agno/blob/0bcebdcad6163bdaab784714552785e64f741a7c/.opensiro/issues/agno-nested-review-20261119/roadmap.md) was NO_GO to an extra S3* constructor. This fresh independent run reached NO_GO before comparing it, with current original HEAD and new direct evidence of Agno's own AgentAsJudgeEval/post-hooks. Owner ACTIVE supersedes older PAUSE but does not grant external-publication consent or authorize product code changes. No Index regrade or new task is created.
+
+## Dated second-look addendum (2026-11-20)
+
+At original [main@b3b8b6832bf5a4a6c9ec5be5d3deae7290e44cbd](https://github.com/agno-agi/agno/commit/b3b8b6832bf5a4a6c9ec5be5d3deae7290e44cbd), a second independent challenge to the recorded NO_GO retained **NO_GO / NO_QUALIFIED_C_TARGET**, research **NO_USEFUL_CHANGE**. Recheck adds source-backed native overlap for [budget #11742](https://github.com/agno-agi/agno/issues/11742), [governance #9151](https://github.com/agno-agi/agno/issues/9151), [cancellation PR #11481](https://github.com/agno-agi/agno/pull/11481), and [eval suites PR #11721](https://github.com/agno-agi/agno/pull/11721); see [roadmap.md](roadmap.md) and Human/AI companions. No new harness/source revision, VSM grade, code, test result or third-party publication. Owner remains ACTIVE / ALLOW; this addendum is a subsequent evaluation, not a replacement of the first v0.18 receipt.
