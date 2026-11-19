@@ -659,6 +659,47 @@ class TestRestoredAuthorityWithoutUsers:
             assert fake.calls[0]["event_context"].authority is None
 
     @pytest.mark.asyncio
+    async def test_disabled_owner_of_an_authorize_senders_run_does_not_resume(self, tmp_path):
+        from agno.agent import Agent
+        from agno.db.sqlite import SqliteDb
+        from agno.os import AgentOS
+
+        db = SqliteDb(db_file=str(tmp_path / "os.db"))
+        agent_os = AgentOS(
+            id="hitl-directory", db=db, agents=[Agent(id="agent-1")], user_directory=True, telemetry=False
+        )
+        app = agent_os.get_app()
+        principal = f"slack:T123:{OWNER}"
+        await app.state.user_store.aset_disabled(principal, True)
+        entity = _make_entity(_paused_run([_make_requirement()], user_id=principal))
+        ctx = make_ctx(agent=entity, authorize_senders=True).bind(app)
+        client = make_async_client_mock()
+        fake = FakeContinue()
+
+        with patch.object(hitl, "continue_run", new=fake):
+            await hitl.handle_submit(_submit_payload(_approved_blocks(), owner=OWNER), client, ctx)
+
+        assert fake.calls == []
+        assert _ephemerals(client) == ["Not run: User is disabled"]
+        # A resumed run reads the directory and never creates a user
+        assert await app.state.user_store.acount() == 1
+
+    @pytest.mark.asyncio
+    async def test_outsider_with_the_owners_email_cannot_decide_an_authorize_senders_run(self):
+        entity = _make_entity(_paused_run([_make_requirement()], user_id="owner@example.com"))
+        ctx = make_ctx(agent=entity, authorize_senders=True, resolve_user_identity=True)
+        client = make_async_client_mock()
+        outsider = {"id": "U_OUT", "team_id": "T_OTHER", "profile": {"email": "owner@example.com"}}
+        client.users_info = AsyncMock(return_value={"ok": True, "user": outsider})
+        fake = FakeContinue()
+
+        with patch.object(hitl, "continue_run", new=fake):
+            await hitl.handle_submit(_submit_payload(_approved_blocks(), user="U_OUT", owner=OWNER), client, ctx)
+
+        assert fake.calls == []
+        assert _ephemerals(client) == [hitl._NOT_ALLOWED_MESSAGE]
+
+    @pytest.mark.asyncio
     async def test_click_after_registry_clear_restores_default_role_authority(self):
         entity = _make_entity(_paused_run([_make_requirement()]))
         ctx = make_ctx(agent=entity, default_role="slack-bot")

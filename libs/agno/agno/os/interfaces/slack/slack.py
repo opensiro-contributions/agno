@@ -11,6 +11,7 @@ from agno.os.interfaces.slack.context import SlackContext, build_context
 from agno.os.interfaces.slack.executor import aclose_runs
 from agno.os.interfaces.slack.router import attach_routes
 from agno.team import RemoteTeam, Team
+from agno.utils.log import log_warning
 from agno.workflow import RemoteWorkflow, Workflow
 
 if TYPE_CHECKING:
@@ -66,6 +67,9 @@ class Slack(BaseInterface):
         approvers: Optional[List[str]] = None,
         users: Optional[Dict[str, str]] = None,
         default_role: Optional[str] = None,
+        authorize_senders: bool = False,
+        apps: Optional[Dict[str, str]] = None,
+        allow_guests_and_external: bool = False,
     ):
         """
         Initialize the Slack interface.
@@ -95,6 +99,9 @@ class Slack(BaseInterface):
             approvers: Slack member IDs (e.g., "U0123ABC") who may decide on or stop anyone's run; the owner always can
             users: Slack member ID to AgentOS principal; unmapped users are refused unless default_role covers them
             default_role: Managed role a user not in users gets, under authorization; the user still acts as themselves
+            authorize_senders: Run each sender as their AgentOS directory user, created on first message; users= first
+            apps: Slack app ID (e.g., "A0123ABC") to AgentOS principal under authorize_senders; others are refused
+            allow_guests_and_external: Under authorize_senders, also run guests and members of other organizations
         """
         self.agent = agent
         self.team = team
@@ -120,9 +127,21 @@ class Slack(BaseInterface):
         self.approvers = approvers
         self.users = users
         self.default_role = default_role
+        self.authorize_senders = authorize_senders
+        self.apps = apps
+        self.allow_guests_and_external = allow_guests_and_external
 
         if not (self.agent or self.team or self.workflow):
             raise ValueError("Slack requires an agent, team, or workflow")
+        if authorize_senders and default_role is not None and users is None:
+            log_warning(
+                "Slack(default_role=...) applies only with users=; under authorize_senders each sender's roles decide"
+            )
+        if apps is not None and (not authorize_senders or users is not None):
+            log_warning(
+                "Slack(apps=...) applies only under authorize_senders without users=; "
+                "map its bot user ID, or a webhook's bot ID, in users="
+            )
 
         self.ctx: SlackContext = self._build_context()
         self._task_delivery: Optional["TaskDelivery"] = None
@@ -159,6 +178,9 @@ class Slack(BaseInterface):
             approvers=self.approvers,
             users=self.users,
             default_role=self.default_role,
+            authorize_senders=self.authorize_senders,
+            apps=self.apps,
+            allow_guests_and_external=self.allow_guests_and_external,
         )
 
     def get_router(self, use_async: bool = True, **kwargs) -> APIRouter:

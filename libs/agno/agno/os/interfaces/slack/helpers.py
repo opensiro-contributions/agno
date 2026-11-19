@@ -150,16 +150,22 @@ def strip_bot_mention(text: str, bot_user_id: Optional[str], bot_name: Optional[
 
 
 async def resolve_slack_user(
-    async_client: Any, slack_user_id: str, errors: Optional[Set[str]] = None
+    async_client: Any,
+    slack_user_id: str,
+    errors: Optional[Set[str]] = None,
+    members: Optional[Dict[str, Any]] = None,
 ) -> Tuple[str, Optional[str]]:
     """Resolve a Slack user ID to (canonical_user_id, display_name).
 
     Returns the user's email as canonical_user_id if available, otherwise
     falls back to the raw Slack user ID. Display name is best-effort.
+    The users.info record is added to members when given.
     """
     try:
         resp = await async_client.users_info(user=slack_user_id)
         user = resp.get("user", {}) if resp else {}
+        if members is not None:
+            members[slack_user_id] = user
         profile = user.get("profile", {})
 
         email = profile.get("email")
@@ -179,11 +185,17 @@ async def resolve_slack_user(
 
 
 async def resolve_slack_bot(
-    async_client: Any, bot_id: str, errors: Optional[Set[str]] = None
+    async_client: Any,
+    bot_id: str,
+    errors: Optional[Set[str]] = None,
+    bots: Optional[Dict[str, Any]] = None,
 ) -> Tuple[str, Optional[str]]:
+    """Resolve a Slack bot ID to (bot_id, name). The bots.info record is added to bots when given."""
     try:
         resp = await async_client.bots_info(bot=bot_id)
         bot = resp.get("bot", {}) if resp else {}
+        if bots is not None:
+            bots[bot_id] = bot
         return (bot_id, bot.get("name") or None)
     except Exception as e:
         log_warning(f"Failed to resolve Slack bot {bot_id}: {str(e)}")
@@ -305,11 +317,18 @@ class LookupCache:
         cached = self.get(key)
         if cached is not None:
             return cached
-        resolved_user_id, display_name = await resolve_slack_user(async_client, slack_user_id, errors)
+        members: Dict[str, Any] = {}
+        resolved_user_id, display_name = await resolve_slack_user(async_client, slack_user_id, errors, members)
         # resolve_slack_user falls back to the raw id on failure; only real lookups are kept
         if resolved_user_id != slack_user_id or display_name:
             self.set(key, (resolved_user_id, display_name))
+        if slack_user_id in members:
+            self.set(f"user_record:{slack_user_id}", members[slack_user_id])
         return resolved_user_id, display_name
+
+    def member(self, slack_user_id: str) -> Optional[Dict[str, Any]]:
+        """The users.info record of the last successful user_identity lookup, while it is cached."""
+        return self.get(f"user_record:{slack_user_id}")
 
     async def bot_identity(
         self, async_client: Any, bot_id: str, errors: Optional[Set[str]] = None
@@ -318,10 +337,17 @@ class LookupCache:
         cached = self.get(key)
         if cached is not None:
             return cached
-        resolved_id, name = await resolve_slack_bot(async_client, bot_id, errors)
+        bots: Dict[str, Any] = {}
+        resolved_id, name = await resolve_slack_bot(async_client, bot_id, errors, bots)
         if name:
             self.set(key, (resolved_id, name))
+        if bot_id in bots:
+            self.set(f"bot_record:{bot_id}", bots[bot_id])
         return resolved_id, name
+
+    def bot(self, bot_id: str) -> Optional[Dict[str, Any]]:
+        """The bots.info record of the last successful bot_identity lookup, while it is cached."""
+        return self.get(f"bot_record:{bot_id}")
 
     async def sender_name(self, async_client: Any, user_id: str, bot_id: str) -> Optional[str]:
         # A user-token post carries both ids; the human is the sender, as for the run's owner

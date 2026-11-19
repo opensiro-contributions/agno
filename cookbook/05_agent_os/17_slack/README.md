@@ -33,6 +33,7 @@ hands each event to the interface. The demo environment installs both.
 | `hitl_external_execution.py` | Show tool arguments and collect an external result |
 | `hitl_incident_commander.py` | Compound incident flow using all pause types |
 | `access_control.py` | `users=` maps Slack users to principals; `approvers=` names who may approve or stop |
+| `authorize_senders.py` | Each sender runs as their own directory user, created with the default role |
 | `claude_harness.py` | A Claude Code agent with native tool approvals |
 | `codex_harness.py` | A Codex agent with native command approvals |
 | `sandbox_review.py` | A sandboxed Codex reviewer in a Docker container, with native approvals |
@@ -203,6 +204,11 @@ returns it and adds the display name to run metadata.
 Sessions are stored under the run's `user_id`; map a member with `users=` to
 see the thread under their principal.
 
+With `authorize_senders=True` (see Approvers and User Mapping), the run's
+`user_id` is the sender's AgentOS directory user instead, so turning it on for
+an existing bot starts each member's new sessions under
+`slack:{workspace_id}:{member_id}` rather than their member ID.
+
 Claude Code and Codex take one turn per session at a time: a message that
 arrives while one is working gets a short "still working" reply. An Agent or
 Team runs both turns.
@@ -286,7 +292,8 @@ export SLACK_APPROVER_ID="U..."
   members who need different access. Without it and without `users=`, under
   authorization, Super Agent runs such a user with no roles: they can chat, and
   every action that needs a permission is refused. An agent, team or workflow
-  other than Super Agent runs them unchecked.
+  other than Super Agent runs them unchecked, and under `authorize_senders=True`
+  without `users=` it is not used.
 
 ```python
 # trust_token_scopes keeps os.agno.com sign-ins working once a role is defined
@@ -311,6 +318,38 @@ authz.define_role(
 
 Slack(team=agent_os.manager, default_role="slack-member")
 ```
+
+- **`authorize_senders=`**: runs an agent, team or workflow as each sender's user
+  in the AgentOS user directory (`AgentOS(user_directory=True)`), and that
+  user's roles decide what they can do, as for a web sign-in. Slack has already
+  signed the member in, so a sender with no user gets one on their first
+  message, with the platform default role (`define_role(..., default=True)`);
+  without a default role they are refused until an admin assigns one. The user
+  is `slack:{workspace_id}:{member_id}`, or with `resolve_user_identity=True` the
+  member's confirmed email, so an existing user whose ID is that email is
+  reused. Disabling the user refuses their messages and their paused runs.
+  `users=` is checked first and creates no users. Without AgentOS authorization
+  only the directory applies; without a user directory no users are created, so
+  a sender runs only with roles assigned to their ID. Super Agent is not
+  affected.
+- **`allow_guests_and_external=`**: under `authorize_senders`, guests and members
+  of other organizations are refused unless this is `True`. Each then gets their
+  own `slack:{workspace_id}:{member_id}` user in their own workspace, and their
+  email never names one.
+- **`apps=`**: under `authorize_senders` with `respond_to_other_apps=True`,
+  another app runs as its own `slack:{workspace_id}:{app_id}` user, with the
+  default role. `apps=` maps Slack app IDs to AgentOS principals instead, as a
+  closed list: an app it leaves out is refused, and a mapped app gets no
+  directory user.
+
+When Slack cannot be reached under `authorize_senders`,
+`UserDirectory(fail_closed=True)` refuses the message. With `fail_closed=False`
+it still runs as `slack:{workspace_id}:{member_id}`, with that user's disabled
+switch and roles, or unchecked with `resolve_user_identity=True`, since no email
+is known. When the directory cannot be reached, `fail_closed=False` runs it
+unchecked, since its roles are usually stored there too; with
+`UserDirectory(auto_provision=False)`, and for Approve on a paused run, roles
+still decide.
 
 ## Workspace Search Action
 

@@ -51,6 +51,9 @@ class SlackContext:
     approvers: Optional[List[str]] = None
     users: Optional[Dict[str, str]] = None
     default_role: Optional[str] = None
+    authorize_senders: bool = False
+    apps: Optional[Dict[str, str]] = None
+    allow_guests_and_external: bool = False
     company: Any = None
     lookup_cache: LookupCache = field(default_factory=LookupCache)
     bot_names: BotNameResolver = field(default_factory=BotNameResolver)
@@ -96,6 +99,9 @@ def build_context(
     approvers: Optional[List[str]] = None,
     users: Optional[Dict[str, str]] = None,
     default_role: Optional[str] = None,
+    authorize_senders: bool = False,
+    apps: Optional[Dict[str, str]] = None,
+    allow_guests_and_external: bool = False,
 ) -> SlackContext:
     """Build the SlackContext from the Slack(...) arguments; see Slack.__init__ for each one.
 
@@ -138,6 +144,9 @@ def build_context(
         approvers=approvers,
         users=users,
         default_role=default_role,
+        authorize_senders=authorize_senders,
+        apps=apps,
+        allow_guests_and_external=allow_guests_and_external,
     )
 
 
