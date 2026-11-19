@@ -1,24 +1,19 @@
-# Agno nested HumanReview roadmap case
+# Agno — Upstream #58 independent v0.18 rerun
 
-- **Original:** [agno-agi/agno](https://github.com/agno-agi/agno), `365c9c7e74719c1d20b557178add8c65f27a4426` (2026-11-19)
-- **Matching public fork:** [opensiro-contributions/agno](https://github.com/opensiro-contributions/agno), parent checked through GitHub first party
-- **Accepted Index:** [Agno, reviewed 2026-09-15](https://github.com/opensiro/vsm-harness-index/blob/34e11ec4dd52e1ba3ee0111d8bca73f13918f54f/assessments/ag/agno.md), `S1=A · S2=A · S3=A · S3*=— · S4=— · S5=—`; historical, not current/target
-- **Selected original task:** [#10935 nested `HumanReview` ignored](https://github.com/agno-agi/agno/issues/10935)
-- **Disposition:** `PLAN_ONLY / NEEDS_EVIDENCE`; **terminal NO_GO now** to a new VSM S3* constructor; prefer existing original-native review safety fix
-- **Public fork Issue:** NOT PUBLISHED (exact owner approval and owner control not satisfied)
-- **External original Issue/PR:** NOT PUBLISHED; reuse #10935
-- **Owner control:** `.opensiro/state.json` on this branch defaults `PAUSE/DORMANT`; initial case bootstrap only, no RESUME implied
-- **Native tests:** NOT RUN; **cost:** NOT_MEASURED
+- Stable case: agno-nested-review-20261119; original agno-agi/agno main b3b8b6832bf5a4a6c9ec5be5d3deae7290e44cbd (2026-11-19)
+- Verified fork: opensiro-contributions/agno; opensiro/meta metadata branch, product main not modified
+- Accepted Index: https://github.com/opensiro/vsm-harness-index/blob/c2e43bf4750841277b3e58d8ba80314121734764/assessments/ag/agno.md (status included, review 2026-09-15, assessment blob e4ccb129a7a67baaca7c84b50f6f9820462d4382)
+- Historical S1=A · S2=A · S3=A · S3*=— · S4=— · S5=—
+- Owner control: ACTIVE / ALLOW per Upstream #58 event 20261119T182226Z--owner-upstream58-active
+- **Final proposal: NO_GO / NO_QUALIFIED_C_TARGET**; research NO_USEFUL_CHANGE
+- Source-native original issue [#10935](https://github.com/agno-agi/agno/issues/10935): nested HumanReview can be bypassed; native fix or explicit rejection, not new S3*
+- Native tests NOT_RUN; user/cost benefit NOT_MEASURED; public fork Issue and original PR/comment NOT PUBLISHED
 
-## Two-level case (one proposal, not two Issues)
+## Case files
 
-1. [Human decision and accepted central assessment](issue.md)
-2. [AI/developer source and constructor sufficiency contract](constructor-sufficiency.md)
-3. [Source-pinned capability roadmap receipt](roadmap.md)
-4. [Exact pending public fork Issue text](fork-issue-draft.md)
+- [Human decision and six-function table](issue.md)
+- [AI/developer construction sufficiency](constructor-sufficiency.md)
+- [Canonical source-pinned v0.18 receipt](roadmap.md)
+- [Public fork GitHub Issue draft — NOT PUBLISHED](fork-issue-draft.md)
 
-The four documents deliberately separate accepted Index evidence from observed current original and from hypothetical S3* C construction. No proposed C is installed or regraded.
-
-## Next operator decision
-
-The current decision is **NO_GO** for new S3* construction. A separately authorized original-native repair of #10935 would require an accepted maintainer support-vs-reject choice, original `ready` issue label before an external PR, checked overlap and native tests. A public fork Issue additionally requires full exact current-chat consent plus effective owner control; do not create it from this metadata alone.
+The earlier [plan-only case](https://github.com/opensiro-contributions/agno/blob/0bcebdcad6163bdaab784714552785e64f741a7c/.opensiro/issues/agno-nested-review-20261119/roadmap.md) was NO_GO to an extra S3* constructor. This fresh independent run reached NO_GO before comparing it, with current original HEAD and new direct evidence of Agno's own AgentAsJudgeEval/post-hooks. Owner ACTIVE supersedes older PAUSE but does not grant external-publication consent or authorize product code changes. No Index regrade or new task is created.
