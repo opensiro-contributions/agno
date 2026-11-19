@@ -42,3 +42,14 @@ Fork [opensiro-contributions/agno](https://github.com/opensiro-contributions/agn
 The fresh Track A challenge also found original [#11742](https://github.com/agno-agi/agno/issues/11742) (USD budget plus hooks and caveats), [#9151](https://github.com/agno-agi/agno/issues/9151) (generic governance), [PR #11481](https://github.com/agno-agi/agno/pull/11481) (child-start cancellation correctness), and [PR #11721](https://github.com/agno-agi/agno/pull/11721) (AgentOS eval suites). These are original-owned maintenance and composition pathways; none yet establishes the incremental user result of a distinct audit-to-authorized-correction `S3*=C` constructor. Strongest Track B candidate remains independent evidence audit of nested Team/Workflow outcomes. It fails qualification until a particular post-native-fix failure, independent evidence access, a binding permitted rework action, and an A/B improvement are demonstrated.
 
 Original at main b3b8b6832bf5a4a6c9ec5be5d3deae7290e44cbd, canonical assessment included / e4ccb129a7a67baaca7c84b50f6f9820462d4382. No native tests, patches, cost measurements or third-party publication. See [second-look receipt](roadmap.md) for six-function disposition, alternatives, falsifiers, and historic comparison.
+
+## 2026-11-20 — independent source-native reproduction completed
+
+Actual `agno-agi/agno@b3b8b6832bf5a4a6c9ec5be5d3deae7290e44cbd` was installed and executed. Sync + async test matrix:
+**24 runs, 4/4 top-level pauses, 20/20 nested Step HumanReview bypasses** (both output review and
+confirmation); downstream `publish` executes with no review for every nested container.
+No model or external integration involved; [reproducer and raw result](evidence/nested-human-review-20261120/README.md).
+This is a verified **original-native safety/correctness defect** under [maintainer issue #10935](https://github.com/agno-agi/agno/issues/10935).
+The smallest legitimate fix is original-native pause/resume or explicit fail-closed rejection,
+not a newly installed agent reviewer. VSM proposal remains NO_GO / NO_QUALIFIED_C_TARGET;
+targeted evidence is partial, not an original full-suite PASS, and no external maintainer contact occurred.

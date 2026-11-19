@@ -1,0 +1,282 @@
+[
+  {
+    "execution": "sync",
+    "mode": "top_level",
+    "review": "requires_output_review",
+    "paused": true,
+    "awaiting_output_review": 1,
+    "requirements": 1,
+    "ran": [
+      "draft"
+    ]
+  },
+  {
+    "execution": "sync",
+    "mode": "Condition",
+    "review": "requires_output_review",
+    "paused": false,
+    "awaiting_output_review": 0,
+    "requirements": 0,
+    "ran": [
+      "draft",
+      "publish"
+    ]
+  },
+  {
+    "execution": "sync",
+    "mode": "Loop",
+    "review": "requires_output_review",
+    "paused": false,
+    "awaiting_output_review": 0,
+    "requirements": 0,
+    "ran": [
+      "draft",
+      "publish"
+    ]
+  },
+  {
+    "execution": "sync",
+    "mode": "Parallel",
+    "review": "requires_output_review",
+    "paused": false,
+    "awaiting_output_review": 0,
+    "requirements": 0,
+    "ran": [
+      "draft",
+      "publish"
+    ]
+  },
+  {
+    "execution": "sync",
+    "mode": "Steps",
+    "review": "requires_output_review",
+    "paused": false,
+    "awaiting_output_review": 0,
+    "requirements": 0,
+    "ran": [
+      "draft",
+      "publish"
+    ]
+  },
+  {
+    "execution": "sync",
+    "mode": "Router",
+    "review": "requires_output_review",
+    "paused": false,
+    "awaiting_output_review": 0,
+    "requirements": 0,
+    "ran": [
+      "draft",
+      "publish"
+    ]
+  },
+  {
+    "execution": "sync",
+    "mode": "top_level",
+    "review": "requires_confirmation",
+    "paused": true,
+    "awaiting_output_review": 0,
+    "requirements": 1,
+    "ran": []
+  },
+  {
+    "execution": "sync",
+    "mode": "Condition",
+    "review": "requires_confirmation",
+    "paused": false,
+    "awaiting_output_review": 0,
+    "requirements": 0,
+    "ran": [
+      "draft",
+      "publish"
+    ]
+  },
+  {
+    "execution": "sync",
+    "mode": "Loop",
+    "review": "requires_confirmation",
+    "paused": false,
+    "awaiting_output_review": 0,
+    "requirements": 0,
+    "ran": [
+      "draft",
+      "publish"
+    ]
+  },
+  {
+    "execution": "sync",
+    "mode": "Parallel",
+    "review": "requires_confirmation",
+    "paused": false,
+    "awaiting_output_review": 0,
+    "requirements": 0,
+    "ran": [
+      "draft",
+      "publish"
+    ]
+  },
+  {
+    "execution": "sync",
+    "mode": "Steps",
+    "review": "requires_confirmation",
+    "paused": false,
+    "awaiting_output_review": 0,
+    "requirements": 0,
+    "ran": [
+      "draft",
+      "publish"
+    ]
+  },
+  {
+    "execution": "sync",
+    "mode": "Router",
+    "review": "requires_confirmation",
+    "paused": false,
+    "awaiting_output_review": 0,
+    "requirements": 0,
+    "ran": [
+      "draft",
+      "publish"
+    ]
+  },
+  {
+    "execution": "async",
+    "mode": "top_level",
+    "review": "requires_output_review",
+    "paused": true,
+    "awaiting_output_review": 1,
+    "requirements": 1,
+    "ran": [
+      "draft"
+    ]
+  },
+  {
+    "execution": "async",
+    "mode": "Condition",
+    "review": "requires_output_review",
+    "paused": false,
+    "awaiting_output_review": 0,
+    "requirements": 0,
+    "ran": [
+      "draft",
+      "publish"
+    ]
+  },
+  {
+    "execution": "async",
+    "mode": "Loop",
+    "review": "requires_output_review",
+    "paused": false,
+    "awaiting_output_review": 0,
+    "requirements": 0,
+    "ran": [
+      "draft",
+      "publish"
+    ]
+  },
+  {
+    "execution": "async",
+    "mode": "Parallel",
+    "review": "requires_output_review",
+    "paused": false,
+    "awaiting_output_review": 0,
+    "requirements": 0,
+    "ran": [
+      "draft",
+      "publish"
+    ]
+  },
+  {
+    "execution": "async",
+    "mode": "Steps",
+    "review": "requires_output_review",
+    "paused": false,
+    "awaiting_output_review": 0,
+    "requirements": 0,
+    "ran": [
+      "draft",
+      "publish"
+    ]
+  },
+  {
+    "execution": "async",
+    "mode": "Router",
+    "review": "requires_output_review",
+    "paused": false,
+    "awaiting_output_review": 0,
+    "requirements": 0,
+    "ran": [
+      "draft",
+      "publish"
+    ]
+  },
+  {
+    "execution": "async",
+    "mode": "top_level",
+    "review": "requires_confirmation",
+    "paused": true,
+    "awaiting_output_review": 0,
+    "requirements": 1,
+    "ran": []
+  },
+  {
+    "execution": "async",
+    "mode": "Condition",
+    "review": "requires_confirmation",
+    "paused": false,
+    "awaiting_output_review": 0,
+    "requirements": 0,
+    "ran": [
+      "draft",
+      "publish"
+    ]
+  },
+  {
+    "execution": "async",
+    "mode": "Loop",
+    "review": "requires_confirmation",
+    "paused": false,
+    "awaiting_output_review": 0,
+    "requirements": 0,
+    "ran": [
+      "draft",
+      "publish"
+    ]
+  },
+  {
+    "execution": "async",
+    "mode": "Parallel",
+    "review": "requires_confirmation",
+    "paused": false,
+    "awaiting_output_review": 0,
+    "requirements": 0,
+    "ran": [
+      "draft",
+      "publish"
+    ]
+  },
+  {
+    "execution": "async",
+    "mode": "Steps",
+    "review": "requires_confirmation",
+    "paused": false,
+    "awaiting_output_review": 0,
+    "requirements": 0,
+    "ran": [
+      "draft",
+      "publish"
+    ]
+  },
+  {
+    "execution": "async",
+    "mode": "Router",
+    "review": "requires_confirmation",
+    "paused": false,
+    "awaiting_output_review": 0,
+    "requirements": 0,
+    "ran": [
+      "draft",
+      "publish"
+    ]
+  }
+]

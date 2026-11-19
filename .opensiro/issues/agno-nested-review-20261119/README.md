@@ -21,3 +21,13 @@ The earlier [plan-only case](https://github.com/opensiro-contributions/agno/blob
 ## Dated second-look addendum (2026-11-20)
 
 At original [main@b3b8b6832bf5a4a6c9ec5be5d3deae7290e44cbd](https://github.com/agno-agi/agno/commit/b3b8b6832bf5a4a6c9ec5be5d3deae7290e44cbd), a second independent challenge to the recorded NO_GO retained **NO_GO / NO_QUALIFIED_C_TARGET**, research **NO_USEFUL_CHANGE**. Recheck adds source-backed native overlap for [budget #11742](https://github.com/agno-agi/agno/issues/11742), [governance #9151](https://github.com/agno-agi/agno/issues/9151), [cancellation PR #11481](https://github.com/agno-agi/agno/pull/11481), and [eval suites PR #11721](https://github.com/agno-agi/agno/pull/11721); see [roadmap.md](roadmap.md) and Human/AI companions. No new harness/source revision, VSM grade, code, test result or third-party publication. Owner remains ACTIVE / ALLOW; this addendum is a subsequent evaluation, not a replacement of the first v0.18 receipt.
+
+## Reproduced source-native failure (2026-11-20)
+
+The original HEAD `b3b8b6832bf5` was installed and exercised in a 24-case synchronous/asynchronous
+`HumanReview` matrix. Four top-level controls paused; **all 20 nested-child controls bypassed**
+and allowed downstream execution. This is a **reproduced native defect**, not a new S3* C target.
+[Evidence and reproducible code](evidence/nested-human-review-20261120/README.md) ·
+[JSON results](evidence/nested-human-review-20261120/observed-results.json).
+Current proposal remains NO_GO / NO_QUALIFIED_C_TARGET; no original/fork public issue,
+original PR or product code was published. Native full suite and streaming NOT_RUN.

@@ -55,3 +55,24 @@ Older [case snapshot](https://github.com/opensiro-contributions/agno/blob/0bcebd
 - **Counterfactuals first:** native [#10935](https://github.com/agno-agi/agno/issues/10935) HumanReview fail-closed fix; [#11481](https://github.com/agno-agi/agno/pull/11481) parent cancellation fix; [#11742](https://github.com/agno-agi/agno/issues/11742) hook/tool budget with model-wrapper/proxy caveat; [#9151](https://github.com/agno-agi/agno/issues/9151) provider-neutral governance discussion. These are not equivalent to a new S3* owner; but no tested unmet need has justified replacing them.
 - **Negative tests required before any GO:** absent/stale/mutated receipts, a compromised model judge, race between check and side effect, async fan-out, no parent approval, forced abort and non-monotonic budget spend; reject unsafe false-PASS and confirm a terminal UNKNOWN/hold.
 - **Result:** `NO_QUALIFIED_C_TARGET`. The first 2026-11-19 v0.18 NO_GO was checked only after this new source-based verdict. Existing case ID and historical receipt remain intact. Product tests NOT_RUN, metrics NOT_MEASURED; no publication or implementation.
+
+## 2026-11-20 — runtime evidence / constructor sufficiency after native check
+
+[Reproducer](evidence/nested-human-review-20261120/repro_human_review.py) and
+[24 result objects](evidence/nested-human-review-20261120/observed-results.json) against
+original main `b3b8b6832bf5a4a6c9ec5be5d3deae7290e44cbd` show 4/4 parent controls pause and **20/20 nested child checks skip pause
+in both sync and async paths**. This elevates the *native bug* from
+external-reporter-only evidence to directly reproduced, not an implementation or independent VSM actor.
+
+A separate S3* review C is still **unqualified**: existing review on a child Step is a parent
+approval requirement and must be honored **before** the downstream side effect. A reviewer that
+audits after `publish` cannot satisfy that pre-action invariant.
+Source-native negative acceptance: for all five nested container types and both review flags,
+either pause at the correct point with durable obligation/resume semantics,
+or deterministically refuse unsupported setup before any child runs.
+Only after that fix compare a separately owned audit actor on distinct missed-work evidence
+with lawful binding feedback and a tested additional user benefit.
+
+Result: NO_GO / NO_QUALIFIED_C_TARGET, research NO_USEFUL_CHANGE for new C.
+Targeted execution PARTIAL_WITH_PINNED_EVIDENCE; original full suite/streaming/concurrency NOT_RUN,
+metrics NOT_MEASURED, no product code or external publication.

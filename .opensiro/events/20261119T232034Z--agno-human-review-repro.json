@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "id": "20261119T232034Z--agno-human-review-repro",
+  "recorded_at": "2026-11-19T23:20:34Z",
+  "actor": "OpenSiro AI analyst (owner-requested Agno #58 continuation)",
+  "kind": "REVIEW",
+  "decision": "Native HumanReview #10935 REPRODUCED (24 runs, 20 nested bypasses); VSM C NO_GO / NO_QUALIFIED_C_TARGET remains",
+  "evidence_urls": [
+    "https://github.com/agno-agi/agno/commit/b3b8b6832bf5a4a6c9ec5be5d3deae7290e44cbd",
+    "https://github.com/agno-agi/agno/issues/10935",
+    "https://github.com/opensiro/upstream/issues/58",
+    "https://github.com/agno-agi/agno/pull/7227",
+    "https://github.com/agno-agi/agno/pull/7433"
+  ],
+  "note": "Executed pinned Agno 3.2.1 editable under Python 3.12.3 without models: 24 combinations (top/nested x two review flags x sync/async). 4/4 top-level paused; all 20 nested bypassed required HumanReview and ran publish. Evidence committed in same canonical case; original unmodified; no external publication.",
+  "next_action": "Follow native maintainer issue #10935 for pause/resume or fail-closed validation; do not claim independent S3* C absent separate tested unmet outcome."
+}

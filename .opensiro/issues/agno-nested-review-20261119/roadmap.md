@@ -36,7 +36,7 @@
 - Proposal-stage decision: NO_GO
 - Research disposition: NO_USEFUL_CHANGE
 - Proposed validation: First reproduce original #10935 nested review bypass on current pinned original, distinguish unsupported nested semantics from missing S3* actor, implement/test native guard or pause only via separately authorized task; assess any distinct external evidence/correction requirement against native judge
-- Validation state: NOT_RUN
+- Validation state: PARTIAL_WITH_PINNED_EVIDENCE
 - Proposal falsifier: A source-backed legitimate need requiring separate operational evidence, independent decision authority, compulsory safe return to Team/Workflow, and observed benefit over existing human review + eval hooks could overturn NO_GO
 - Result: NO_USEFUL_CHANGE
 - External issue: DRAFT — NOT PUBLISHED
@@ -121,3 +121,40 @@ Final fresh-context v0.18 proposal decision **NO_GO / NO_QUALIFIED_C_TARGET**, r
 **P0:** `NO_QUALIFIED_C_TARGET` → proposal-stage **NO_GO**, research **NO_USEFUL_CHANGE**. **P1:** if maintainers accept a specific evidence gap, create an A/B fixture where the same failed nested run / tool-cost overspend / incorrect team completion is tested through native fixes, hooks/evals and one independent reviewer; require immutable independent evidence, binding lawful feedback, negative cases, and a measured user gain. **P2:** none. **Falsifier:** a reproduced original-native failure surviving the first-party fix, plus accepted rights and an on-top auditor demonstrably correcting that failure without weaker safety or duplicate capabilities.
 
 **Reconciliation after fresh verdict:** initial historical same-case NO_GO and first v0.18 NO_GO remain attributed; second-look result agrees, but specifically cross-checks pending PRs #11481/#11721, current budget #11742 and governance #9151. No native code/test execution, economic measurement or actual C construction. Accepted Index vector unchanged. Fork `ACTIVE/ALLOW` read back; no original or public fork Issue, PR, review or comment sent. This is an internal metadata checkpoint.
+
+## Native HumanReview execution follow-up — 2026-11-19T23:20:34Z (UTC)
+
+**New source-pinned runtime evidence, distinct from the 2026-11-19 source-only first review and subsequent second look.**
+Pinned [original `main@b3b8b6832bf5`](https://github.com/agno-agi/agno/commit/b3b8b6832bf5a4a6c9ec5be5d3deae7290e44cbd) was
+installed editable as Agno 3.2.1 under Python 3.12.3. No model, DB, network
+service or external input was needed. [Local evidence README](evidence/nested-human-review-20261120/README.md),
+[executable reproduction](evidence/nested-human-review-20261120/repro_human_review.py) and
+[24-case JSON results](evidence/nested-human-review-20261120/observed-results.json) are recorded.
+
+- Two flags × six placements × sync/async = **24 executions / 0 exceptions**.
+- Four top-level control cases paused as required.
+- **20/20 nested-child cases bypassed `HumanReview`**, with no pending review requirements
+  and the downstream `publish` step executing. Both confirmation-before-action and review-after-output bypass.
+- The local runner asserts the *presence* of the known defect at this exact source SHA:
+  **REPRODUCED / PARTIAL_WITH_PINNED_EVIDENCE**, never native fix PASS or full suite PASS.
+- Historical native first-party [merged PR #7227](https://github.com/agno-agi/agno/pull/7227)
+  fixes top-level `continue_run` checks, while [merged PR #7433](https://github.com/agno-agi/agno/pull/7433)
+  adds review flags *on container objects*; neither solves the child-Step observation.
+
+**Track A:** Original [issue #10935](https://github.com/agno-agi/agno/issues/10935) remains the
+source-native owner. A minimally acceptable fix would (1) correctly pause/resume nested children
+with an auditable human decision, or (2) reject unsupported nested configuration before execution.
+The reporter's original historical repro was previously cited; this follow-up **independently ran it**
+against current checked-out source. This still does not authorize any original-facing publication.
+
+**Track B:** an extra S3* audit would not repair the upstream human gate:
+it cannot retroactively prevent `publish` after a required *pre-execution* approval.
+Only source-backed need for a separately responsible, independently evidenced post-operation
+reviewer with a parent-authorized binding return would make an additional C target eligible.
+No such incremental benefit or authority was proven by this native defect reproduction.
+
+**Scoped decision unchanged:** `NO_GO / NO_QUALIFIED_C_TARGET`, research `NO_USEFUL_CHANGE`
+for the *additional VSM C-construction*. **Native defect: REPRODUCED, NOT_FIXED.**
+Partial targeted execution evidence now exists; streaming, `continue_run`, concurrent races and
+the full original test suite remain NOT_RUN; costs NOT_MEASURED. Historical Index A/A/A/—/—/— unchanged,
+fork owner `ACTIVE/ALLOW`, no product modifications or third-party publication.
