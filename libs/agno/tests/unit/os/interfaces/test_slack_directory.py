@@ -215,14 +215,25 @@ async def test_failed_lookup_failing_open_keeps_the_disabled_switch(tmp_path):
 
 
 @pytest.mark.asyncio
+@pytest.mark.parametrize(
+    "event",
+    [
+        {"user": "", "bot_id": "B_HOOK", "subtype": "bot_message"},
+        {"user": "U_BOT", "bot_id": "B_OTHER", "app_id": "A_OTHER"},
+    ],
+    ids=["webhook", "bot-user"],
+)
 @pytest.mark.parametrize("fail_closed", [True, False])
-async def test_a_webhook_whose_app_cannot_be_looked_up_creates_no_user(tmp_path, fail_closed):
+@pytest.mark.parametrize("apps", [None, {"A_REVIEW": "reviewer"}])
+async def test_an_app_that_cannot_be_looked_up_creates_no_user(tmp_path, event, fail_closed, apps):
     app = _app(tmp_path, fail_closed=fail_closed)
-    ctx = make_ctx(authorize_senders=True, respond_to_other_apps=True).bind(app)
+    ctx = make_ctx(authorize_senders=True, respond_to_other_apps=True, apps=apps).bind(app)
     ctx.bot_id, ctx.bot_user_id = "B_SELF", "U_SELF"
     client = make_async_client_mock()
     client.bots_info = AsyncMock(side_effect=RuntimeError("ratelimited"))
+    client.users_info = AsyncMock(side_effect=RuntimeError("ratelimited"))
     with patch(f"{_EXECUTOR}.run_event", new_callable=AsyncMock) as run_event:
-        await handle_message(make_event_body(user="", bot_id="B_HOOK", subtype="bot_message"), client, ctx)
-    assert run_event.called is not fail_closed
+        await handle_message(make_event_body(**event), client, ctx)
+    # apps= is a closed list, so an app that cannot be named never runs
+    assert run_event.called is (not fail_closed and apps is None)
     assert await app.state.user_store.acount() == 0

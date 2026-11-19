@@ -140,7 +140,7 @@ class Slack(BaseInterface):
         if apps is not None and (not authorize_senders or users is not None):
             log_warning(
                 "Slack(apps=...) applies only under authorize_senders without users=; "
-                "map its bot user ID, or a webhook's bot ID, in users="
+                "map an app's bot user ID, or a webhook's bot ID, in users="
             )
 
         self.ctx: SlackContext = self._build_context()

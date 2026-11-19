@@ -122,7 +122,7 @@ async def is_other_app(ctx: "SlackContext", client: Any, user: str, bot_id: str)
 
 
 async def member_principal(ctx: "SlackContext", client: Any, user: str, team_id: Optional[str]) -> Optional[str]:
-    """A Slack member's directory user: their confirmed email under resolve_user_identity, else slack:{team}:{id}."""
+    """A Slack member's user: their confirmed email under resolve_user_identity, else slack:{workspace}:{id}."""
     await ctx.lookup_cache.user_identity(client, user)
     member = ctx.lookup_cache.member(user)
     # Slack could not be asked, so neither the member nor their email is known
@@ -149,7 +149,7 @@ async def member_principal(ctx: "SlackContext", client: Any, user: str, team_id:
 async def app_principal(
     ctx: "SlackContext", client: Any, event: Dict[str, Any], team_id: Optional[str]
 ) -> Optional[str]:
-    """Another app's directory user: its principal in apps=, else slack:{team}:{app id}; None when apps= omits it."""
+    """Another app's user: its principal in apps=, else slack:{workspace}:{app id}; None when apps= omits it."""
     # One app posts under several bot ids but names the same app id; an incoming webhook's event names none,
     # so its bot's bots.info record does
     app_id = event.get("app_id") or (event.get("bot_profile") or {}).get("app_id")
@@ -207,11 +207,13 @@ async def authorize_sender(ctx: "SlackContext", event_context: "EventContext", c
             principal = await member_principal(ctx, client, event_context.owner, event_context.team_id)
     except LookupError:
         log_warning(f"Slack lookup failed for {event_context.owner!r} (failing {'closed' if fail_closed else 'open'})")
-        if fail_closed:
+        # Without Slack a post carrying a bot id may be another app's; apps= names the only apps that run
+        from_app = other_app or bool(event.get("bot_id"))
+        if fail_closed or (from_app and ctx.apps is not None):
             await refuse(client, event_context, user, _SLACK_UNAVAILABLE_MESSAGE, thread_ts)
             return False
         # Failing open runs it unchecked, as without authorize_senders; no email user or app is known without Slack
-        if ctx.resolve_user_identity or other_app:
+        if ctx.resolve_user_identity or from_app:
             return True
         # A slack:{workspace}:{id} user needs no lookup, so its disabled switch and roles still apply
         principal = f"slack:{event_context.team_id}:{event_context.owner}"

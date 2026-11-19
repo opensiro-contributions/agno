@@ -345,9 +345,10 @@ Slack(team=agent_os.manager, default_role="slack-member")
 When Slack cannot be reached under `authorize_senders`,
 `UserDirectory(fail_closed=True)` refuses the message. With `fail_closed=False`
 it still runs as `slack:{workspace_id}:{member_id}`, with that user's disabled
-switch and roles, or unchecked with `resolve_user_identity=True`, since no email
-is known. When the directory cannot be reached, `fail_closed=False` runs it
-unchecked, since its roles are usually stored there too; with
+switch and roles, or unchecked with `resolve_user_identity=True` or for a post
+through an app, since no email or app is known; with `apps=`, a post through an
+app is refused. When the directory cannot be reached, `fail_closed=False` runs
+it unchecked, since its roles are usually stored there too; with
 `UserDirectory(auto_provision=False)`, and for Approve on a paused run, roles
 still decide.
 
