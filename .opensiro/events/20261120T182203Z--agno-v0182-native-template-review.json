@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "id": "20261120T182203Z--agno-v0182-native-template-review",
+  "recorded_at": "2026-11-20T18:22:03Z",
+  "actor": "OpenSiro AI analyst (owner-directed #58 v0.18.2 same-case template review)",
+  "kind": "REVIEW",
+  "decision": "ALREADY_DONE as new proposal verdict; v0.18.2 source-native and Human/AI template refinement only, retains Wave 4 S3*=— -> S3*=C GO / NEEDS_EVIDENCE PLAN_ONLY",
+  "evidence_urls": [
+    "https://github.com/agno-agi/agno/commit/e59ca576219e589136e53b6cff8d6677899cf95f",
+    "https://github.com/opensiro/vsm-harness-index/blob/a3fcf7c156ef4d1132680890bc11544681fd30c0/assessments/ag/agno.md",
+    "https://github.com/opensiro/upstream/issues/58#issuecomment-7047073253",
+    "https://github.com/opensiro/upstream/issues/58#issuecomment-7047137737",
+    "https://github.com/opensiro/upstream/issues/58#issuecomment-7042788169"
+  ],
+  "note": "Original HEAD and accepted included assessment verified; same case with source-native pretask-completion guard hypothesis; eight-section Human and six-section AI contract; no new scope or VSM regrade. Native tests NOT_RUN; no external publication.",
+  "next_action": "Validate source-native hypothetical in disposable authorized Agno tests only with separate maintainer approval; no external issue/PR."
+}

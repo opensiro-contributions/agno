@@ -42,3 +42,7 @@ The new independent pre-comparison verdict was sealed at https://github.com/open
 - [Updated Human plan](issue.md)
 - [Updated AI construction contract](constructor-sufficiency.md)
 - No source implementation, native tests, Index regrade, original publication or public fork issue.
+
+## v0.18.2 same-case native/template refinement — 2026-11-20
+
+Source-only pre-historical-case decision [checkpoint #7047137737](https://github.com/opensiro/upstream/issues/58#issuecomment-7047137737) independently agrees with the already persisted Wave 4 optional S3* constructor. This is **ALREADY_DONE as a new verdict**, not a second Wave 4 review. Human [issue.md](issue.md) and AI [constructor-sufficiency.md](constructor-sufficiency.md) now follow the merged v0.18.2 Human/AI section and field templates without changing [canonical roadmap.md](roadmap.md) proposal GO / NEEDS_EVIDENCE or erasing historical NO_GO. Source: original e59ca576219e589136e53b6cff8d6677899cf95f, accepted Index a3fcf7c156ef4d1132680890bc11544681fd30c0. Proposed per-task TaskMode audit guard is PLAN_ONLY, native tests NOT_RUN; no third-party publication.
