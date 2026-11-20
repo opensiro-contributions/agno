@@ -1,46 +1,48 @@
-# Agno — independent Upstream #58 v0.18 six-function rerun
+# Agno — Upstream #58 Wave 4 assessment-neutral rerun (2026-11-20)
 
 - Receipt contract: proposal-gate
 - Original repository: agno-agi/agno
-- Original HEAD: b3b8b6832bf5a4a6c9ec5be5d3deae7290e44cbd
-- Observed at: 2026-11-19
-- Accepted Index assessment: https://github.com/opensiro/vsm-harness-index/blob/c2e43bf4750841277b3e58d8ba80314121734764/assessments/ag/agno.md
+- Original HEAD: e59ca576219e589136e53b6cff8d6677899cf95f
+- Observed at: 2026-11-20
+- Accepted Index assessment: https://github.com/opensiro/vsm-harness-index/blob/8b6039a92b39e9ac9e02af8c9a99513d632c3684/assessments/ag/agno.md
 - Accepted assessment blob SHA: e4ccb129a7a67baaca7c84b50f6f9820462d4382
 - Accepted review ref: 44219f8532e2fe6ce936850455f4b9a2567e4194
 - Accepted reviewed at: 2026-09-15
-- Accepted Index commit: c2e43bf4750841277b3e58d8ba80314121734764
-- Accepted catalog blob SHA: 8609180ea6b25cc0d3e51e3c8111f2a4ae4f73f7
+- Accepted Index commit: 8b6039a92b39e9ac9e02af8c9a99513d632c3684
+- Accepted catalog blob SHA: 49e3da57aa5f68abf0403d7f26181e9fb6a2f413
 - Profile version: 0.2.1
 - Assessment methodology version: 0.3.1
-- System in focus: agno-agi/agno first-party Agents, Teams in tasks/route/broadcast/coordinate modes, Workflow nested HumanReview, evaluations, hooks, and publicly shipped AgentOS integration within one declared harness recursion; not separate CompanyOS deployment templates or external maintainers
+- System in focus: First-party Agno Team(mode=tasks) and member Agent/subteam operational reports and terminal completion; other shipped Workflows, AgentOS and evaluators are native comparators, not automatically in task-mode operational boundary
 - Accepted VSM vector: S1=A · S2=A · S3=A · S3*=— · S4=— · S5=—
-- Repository-wide source map: Original README/AGENTS/CONTRIBUTING/LICENSE, libs/agno/agno/agent/agent.py, team/{mode.py,task.py,_task_tools.py,_messages.py,team.py}, workflow/workflow.py and nested container contracts, eval/agent_as_judge.py, guardrails and hooks, current issues and open PR search, Index assessment/catalog
+- Repository-wide source map: Original README, CONTRIBUTING, LICENSE; libs/agno/agno/team/mode.py, task.py, _task_tools.py, _messages.py, _run.py, _hooks.py, Agent operations, Workflow review and eval; cookbook/data_labeling/_18_quality_review/basic.py and cookbook/frameworks/harness_teams/mixed_team.py; original #9084 #10935 #11537 #11514, PR #11721 #11481; accepted Index and catalog
 - S1 disposition: Model/tool operational Agents already present; no C target
 - S2 disposition: Agent Team tasks-mode coordination through shared TaskList and dependencies is already A; no C target
 - S3 disposition: Team leader sees and regulates current tasks, retries, assignments and goal complete; already A, not a quality grade
-- S3* disposition: AgentAsJudgeEval and Team post-hooks are native developer-composable reviewers, but no proven independent evidence/authority/correction closure at declared recursion; absence of grade is not a feature request
+- S3* disposition: Historical absence; separately owned raw-artifact/terminal-receipt audit with fail-closed binding correction is architecturally constructible but not shipped in task-mode; generic native reviewers are not automatically the same S3* closure
 - S4 disposition: Model/provider warnings, memory, scheduled application tasks and externally operated CompanyOS templates do not show a first-party future-environment adaptation-to-S3 feedback function
 - S5 disposition: Instructions, approvals, authentication and human review are configured by human/deployment or operator; no distinct autonomous S5 decision actor demonstrated
-- Target transition: NO_QUALIFIED_C_TARGET
-- Priority rationale: Concrete nested HumanReview behavior is a product-native fail-open defect (#10935), not evidence of a missing complementary audit owner; existing eval/post-hooks make a generic extra reviewer redundant absent an independently demonstrated new outcome
-- Evaluation object: Nested workflow HumanReview safety and optional independent review of Team completion; compare exact source-native fix and standard Eval/Team hooks before proposing S3* construction
-- Existing-work overlap: HumanReview at top-level workflow, nested Condition/Loop/Parallel/Steps/Router processing, Agent and Team pre/post_hooks, AgentAsJudgeEval with evaluator_agent and on_fail, tasks-mode monitoring/replanning, PR/Issue inventory
-- Our on-top contribution: None qualified; plan-only source map and falsifiable boundary for any future separately attributable audit actor
-- Incremental benefit: Not established beyond enforcing native HumanReview or composing existing evaluator with independent task tests
-- Decision scope: Terminal NO_GO to a new VSM C constructor, NOT a rejection of original issue #10935, not a recommendation to ignore real defects, and not permission to publish externally
-- P1 dependencies: Maintainer resolve support-versus-reject nested HumanReview, native regression on 5 container types and async/streaming paths, owner-authorized feedback route; only then test a new independent audit requirement against existing hooks
-- P2 optional: None; no S4 or S5 construction justified merely by absent assessment functions
-- Proposed C construction: Rejected hypothetical second actor would read independent workflow/task evidence, decide verified/reject/unknown, and enforce a legitimate correction into later task execution without taking reviewer-controlled human approval; current native contract and independent-user benefit unproven
-- C sufficiency falsifier: Existing typed HumanReview fix or configured post_hook/AgentAsJudgeEval plus deterministic checks resolves the observed need without a new independently owned function
-- Scenario basis: OBSERVED
-- Proposal-stage decision: NO_GO
-- Research disposition: NO_USEFUL_CHANGE
-- Proposed validation: First reproduce original #10935 nested review bypass on current pinned original, distinguish unsupported nested semantics from missing S3* actor, implement/test native guard or pause only via separately authorized task; assess any distinct external evidence/correction requirement against native judge
-- Validation state: PARTIAL_WITH_PINNED_EVIDENCE
-- Proposal falsifier: A source-backed legitimate need requiring separate operational evidence, independent decision authority, compulsory safe return to Team/Workflow, and observed benefit over existing human review + eval hooks could overturn NO_GO
-- Result: NO_USEFUL_CHANGE
+- Target transition: S3*=— -> S3*=C
+- Priority rationale: Published v0.18.0 neutrality qualifies coherent independent C constructibility without assuming product value or maintainer preference. Team task-mode accepts member text as completion and exposes unconditional mark_all_complete. Separate raw evidence, auditor decision and enforced correction path is a coherent optional native construction.
+- Evaluation object: New optional post-operation independent audit of Team(task-mode) claimed task success; distinct from nested Workflow HumanReview parent authorization correctness
+- Existing-work overlap: Native task board/retries, evaluators, hooks, quality-review Workflow and read-only Codex reviewer; original issue #9084 (open), #11537 (open), #10935 (open), closed debate #11514, PR #11721 open eval suites, PR #11481 open cancellation; source alternatives and constraints, not confirmed equivalent audit owner+closure
+- Our on-top contribution: PLAN_ONLY optional first-party task-mode S3* audit seam: isolated raw-artifact verifier, typed PASS/REWORK/UNKNOWN, durable evidence and mandatory completion hold/repair/re-audit; no code implementation
+- Incremental benefit: Structural difference is independently owned evidence challenge and binding return to S3; commercial/product desirability, cost and real adoption not claimed and not measured
+- Decision scope: Architectural S3* constructibility GO, research NEEDS_EVIDENCE; historical prior NO_GO and native HumanReview reproduction preserved; not an Index regrade, product decision or implementation
+- P1 dependencies: First-party independent evidence/receipt, scoped auditor authority, atomic fail-closed task and goal guard across sync/async/parallel/nested/resumed branches, parent policy and human approvals intact; native A/B tests
+- P2 optional: Workflow audit adapters only after Task-mode priority proven; no automatic S4/S5 proposals
+- Proposed C construction: Opt-in Team task-mode auditor reads original raw artifacts, trusted terminal receipt and criteria independently of worker/leader; separate audit actor returns PASS/REWORK/UNKNOWN. First-party deterministic guard holds task/goal completion on REWORK or UNKNOWN, returns findings to Team leader for authorized repair/reassignment and re-audit; parent retains human approvals and ultimate S5 authority.
+- C sufficiency falsifier: At pinned original HEAD the same independently owned S3* raw-evidence challenge and binding corrective return are already first-party reachable for Team tasks, or no trustworthy evidence+full finalization guard can lawfully be constructed
+- Scenario basis: HYPOTHETICAL
+- Proposal-stage decision: GO
+- Research disposition: NEEDS_EVIDENCE
+- Proposed validation: Native disposable A/B against existing Team/evaluator/hooks: false-success claim and raw-artifact contradiction, missing/mutable/untrusted receipt, no terminal remote stream, sync/async nested/parallel resume and race paths, negative human-approval bypass; proof of durable rework/re-audit
+- Validation state: NOT_RUN
+- Proposal falsifier: Native complete equivalent S3* audit closure, inability to isolate evidence/decision owner or inability to prevent bypass of completion would overturn proposed GO
+- Result: NEEDS_EVIDENCE
 - External issue: DRAFT — NOT PUBLISHED
 - Cost status: NOT_MEASURED
+
+> **CURRENT WAVE 4 (2026-11-20): proposed S3*=— -> S3*=C GO / NEEDS_EVIDENCE, PLAN_ONLY.** Pre-comparison verdict: https://github.com/opensiro/upstream/issues/58#issuecomment-7042788169. The older NO_GO and pinned HumanReview reproduction below remain dated historical evidence; no native Wave 4 test, implementation, Index regrade or third-party outreach.
 
 ## Identity and pins
 
@@ -158,3 +160,40 @@ for the *additional VSM C-construction*. **Native defect: REPRODUCED, NOT_FIXED.
 Partial targeted execution evidence now exists; streaming, `continue_run`, concurrent races and
 the full original test suite remain NOT_RUN; costs NOT_MEASURED. Historical Index A/A/A/—/—/— unchanged,
 fork owner `ACTIVE/ALLOW`, no product modifications or third-party publication.
+
+
+## Wave 4 — post-release assessment-neutral decision (2026-11-20)
+
+**New Wave 4 terminal proposal-stage decision: GO / NEEDS_EVIDENCE. Historical decisions and native defect evidence above remain attributable and are not silently replaced.** This addendum governs the current proposal; earlier sections retain the 2026-11-19 and early 2026-11-20 prior-scope findings, including conflicting historic NO_GO wording.
+
+### Source-first scope and six-function screen
+
+Original source: https://github.com/agno-agi/agno/commit/e59ca576219e589136e53b6cff8d6677899cf95f (main). Canonical included Index assessment: https://github.com/opensiro/vsm-harness-index/blob/8b6039a92b39e9ac9e02af8c9a99513d632c3684/assessments/ag/agno.md, blob e4ccb129a7a67baaca7c84b50f6f9820462d4382, catalog blob 49e3da57aa5f68abf0403d7f26181e9fb6a2f413, review ref 44219f8532e2fe6ce936850455f4b9a2567e4194, reviewed 2026-09-15, Profile 0.2.1/Methodology 0.3.1. Historical vector is S1=A / S2=A / S3=A / S3*=— / S4=— / S5=—, NOT regraded.
+
+- S1: member Agents execute operational actions and produce artifacts.
+- S2: shared TaskList and dependency conflict dampening coordinate members.
+- S3: task-mode Team leader owns current assignment, retry and goal-completion decisions over a whole-task board.
+- S3*: an independent complementary raw-evidence audit and mandatory corrective return into this task-mode boundary is not shown as shipped; configured reviewer examples alone do not close it.
+- S4: learning and knowledge are not proof of external prospective adaptation options coupled to S3.
+- S5: ultimate identity, permission, approval and policy authority remain developer/human/parent-owned. Nested teams are not proof of recursively autonomous S5.
+
+### Parallel Track A and Track B
+
+| Existing original first-party path / issue | Optional new C constructor | Scope and falsifier |
+| --- | --- | --- |
+| Task mode [TaskList](https://github.com/agno-agi/agno/blob/e59ca576219e589136e53b6cff8d6677899cf95f/libs/agno/agno/team/task.py) and [task tools](https://github.com/agno-agi/agno/blob/e59ca576219e589136e53b6cff8d6677899cf95f/libs/agno/agno/team/_task_tools.py) store member response as task completion; leader mark_all_complete sets goal complete | Separate S3* auditor reads original artifacts and a trusted terminal receipt, issues a typed independent verdict; first-party task/goal completion gate holds on non-PASS | If same independent raw-evidence decision and binding corrective feedback already exists on this boundary, new C is redundant; ordinary task summary is not independent evidence |
+| [Quality-review example](https://github.com/agno-agi/agno/blob/e59ca576219e589136e53b6cff8d6677899cf95f/cookbook/data_labeling/_18_quality_review/basic.py), [read-only Codex team reviewer](https://github.com/agno-agi/agno/blob/e59ca576219e589136e53b6cff8d6677899cf95f/cookbook/frameworks/harness_teams/mixed_team.py), AgentAsJudgeEval and pre/post hooks | Independently owned, persisted PASS/REWORK/UNKNOWN audit + evidence-addressed correction and re-audit routed into TaskMode S3 | Workflows and model judges are valid native alternatives, but not an automatic compulsory artifact-audit-to-task-closure path |
+| Open [#9084](https://github.com/agno-agi/agno/issues/9084) on continue hooks; open [#11537](https://github.com/agno-agi/agno/issues/11537) on incomplete remote streams; open [PR #11721](https://github.com/agno-agi/agno/pull/11721) eval suites, open [PR #11481](https://github.com/agno-agi/agno/pull/11481) cancellation | Bypass-safe audit and completion guard on sync/async/parallel/nested/resumed branches with a complete terminal event requirement | If any supported finalization path evades the gate or cannot expose independent trustworthy evidence, proposed C is BLOCKED, not certified |
+| Open [#10935](https://github.com/agno-agi/agno/issues/10935) nested HumanReview bypass, reproduced historically on old pinned HEAD (24 cases, 20 nested bypasses) | **Not** a proposed replacement for human pre-action approval; different post-operation Team task audit | HumanReview must be repaired by original-native fail-closed/paused semantics. Its existence cannot make an independent S3* construction logically impossible |
+
+### Construction sufficiency and safeguards
+
+The operational claim is that a member task completed correctly; routine evidence is the member/leader's report. An opt-in auditor controlled by a distinct configured identity reads raw artifacts, immutable run/terminal identity and independent objective criteria. This actor, not the worker or team leader, chooses an evidentiary PASS/REWORK/UNKNOWN. A native deterministic gate prevents both explicit mark_all_complete and implicit all-terminal completion on REWORK/UNKNOWN; a durable finding and evidence link go back to the S3 Team leader, which may repair or reassign under existing authority, followed by re-audit. Parent policy/HITL remains supreme. This is a **constructible source-native proposal**, not a shipped integration or an asserted mandatory product choice.
+
+**P0:** S3*=— -> S3*=C; GO / NEEDS_EVIDENCE, PLAN_ONLY. **P1:** disposable native test and integration proof for isolated evidence, no bypass, run identity, authorized rework, and cost/effect report. **P2:** no mandatory next function. **Falsifier:** actual equivalent native S3* ownership and corrective closure already operating; or credible implementation cannot isolate auditor, evidence, authority and every completion gate. Operator need, maintainer preference and product economics are separate decisions.
+
+**Unrun tests:** baseline native success and configured judge/post-hook; false successful member report contradicted by artifact; missing/altered/stale evidence must HOLD; incomplete remote stream; sync/async and nested parallel; resume/restart; no actor self-certification; parent HumanReview not bypassed; bounded repairs and re-audit; no policy escalation. **Native Wave 4 tests NOT_RUN, costs/outcomes NOT_MEASURED.** The older human-review 24-case reproduction was not rerun at this newer HEAD.
+
+**Historical reconciliation AFTER sealing new verdict:** Prior canonical case judged another C actor NO_GO partly because the demonstrated native nested HumanReview bug and optional evaluator/hooks did not justify incremental measured user benefit. The newly published Upstream v0.18.0 assessment-neutral rule evaluates *architectural C constructibility*, not a maintainer's product priorities or predicted useful feature adoption. Existing reviewers and native fixes are evidence and potential equivalence falsifiers, not automatic product-value vetoes. Historical NO_GO and the reproduced human-review issue remain intact and separately described.
+
+Fork opensiro-contributions/agno state ACTIVE/ALLOW. Only fork-local opensiro/meta metadata is permitted; no original-facing Issue, PR, review, comment or public fork Issue is published. Internal [Upstream #58 first-pass seal](https://github.com/opensiro/upstream/issues/58#issuecomment-7042788169) anchors the new Wave 4 decision before historical comparison.

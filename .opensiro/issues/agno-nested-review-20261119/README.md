@@ -1,13 +1,14 @@
-# Agno — Upstream #58 independent v0.18 rerun
+# Agno — Upstream #58 Wave 4 assessment-neutral rerun
 
 - Stable case: agno-nested-review-20261119; original agno-agi/agno main b3b8b6832bf5a4a6c9ec5be5d3deae7290e44cbd (2026-11-19)
 - Verified fork: opensiro-contributions/agno; opensiro/meta metadata branch, product main not modified
 - Accepted Index: https://github.com/opensiro/vsm-harness-index/blob/c2e43bf4750841277b3e58d8ba80314121734764/assessments/ag/agno.md (status included, review 2026-09-15, assessment blob e4ccb129a7a67baaca7c84b50f6f9820462d4382)
 - Historical S1=A · S2=A · S3=A · S3*=— · S4=— · S5=—
 - Owner control: ACTIVE / ALLOW per Upstream #58 event 20261119T182226Z--owner-upstream58-active
-- **Final proposal: NO_GO / NO_QUALIFIED_C_TARGET**; research NO_USEFUL_CHANGE
+- **Current Wave 4 proposal: GO for S3*=— -> S3*=C**, research NEEDS_EVIDENCE (PLAN_ONLY), dated 2026-11-20. Prior NO_GO remains historical.
+- Current original main e59ca576219e589136e53b6cff8d6677899cf95f; accepted current Index 8b6039a92b39e9ac9e02af8c9a99513d632c3684 with historical assessment blob unchanged.
 - Source-native original issue [#10935](https://github.com/agno-agi/agno/issues/10935): nested HumanReview can be bypassed; native fix or explicit rejection, not new S3*
-- Native tests NOT_RUN; user/cost benefit NOT_MEASURED; public fork Issue and original PR/comment NOT PUBLISHED
+- New-wave native tests NOT_RUN; user/cost benefit NOT_MEASURED; public fork Issue and original PR/comment NOT PUBLISHED. Previous 24-case pinned HumanReview reproduction is historical, separate evidence.
 
 ## Case files
 
@@ -31,3 +32,13 @@ and allowed downstream execution. This is a **reproduced native defect**, not a 
 [JSON results](evidence/nested-human-review-20261120/observed-results.json).
 Current proposal remains NO_GO / NO_QUALIFIED_C_TARGET; no original/fork public issue,
 original PR or product code was published. Native full suite and streaming NOT_RUN.
+
+
+## Current Wave 4 receipt and evidence
+
+The new independent pre-comparison verdict was sealed at https://github.com/opensiro/upstream/issues/58#issuecomment-7042788169. Source-grounded architectural GO / NEEDS_EVIDENCE concerns an optional independent evidence auditor for Team task completion, **not** automatic product desirability or a substitute for parent-approved HumanReview. The historical NO_GO and 24-case original-native bypass findings remain visible in dated text and Git history.
+
+- [Current canonical roadmap](roadmap.md)
+- [Updated Human plan](issue.md)
+- [Updated AI construction contract](constructor-sufficiency.md)
+- No source implementation, native tests, Index regrade, original publication or public fork issue.

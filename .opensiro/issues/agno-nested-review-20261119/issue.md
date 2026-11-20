@@ -1,8 +1,10 @@
-# Agno — independent six-function rerun and nested HumanReview gap (OpenSiro #58)
+# Agno — Wave 4 proposed independent S3* Team audit (OpenSiro #58)
 
-**Target transition:** NO_QUALIFIED_C_TARGET
-**Proposal-stage decision:** NO_GO
-**Research disposition:** NO_USEFUL_CHANGE
+**Target transition:** S3*=— -> S3*=C
+**Proposal-stage decision:** GO
+**Research disposition:** NEEDS_EVIDENCE
+
+**Current Wave 4: GO / NEEDS_EVIDENCE for architectural S3*=C constructibility, not product adoption. Earlier NO_GO and native HumanReview reproduction below are historical.**
 
 **Human-facing plan-only source draft.** [roadmap.md](roadmap.md) is canonical evidence; [constructor-sufficiency.md](constructor-sufficiency.md) records exact developer conditions. This does not publish a public fork Issue or contact maintainers.
 
@@ -53,3 +55,12 @@ This is a verified **original-native safety/correctness defect** under [maintain
 The smallest legitimate fix is original-native pause/resume or explicit fail-closed rejection,
 not a newly installed agent reviewer. VSM proposal remains NO_GO / NO_QUALIFIED_C_TARGET;
 targeted evidence is partial, not an original full-suite PASS, and no external maintainer contact occurred.
+
+
+## Current Wave 4 human assessment-neutral decision — 2026-11-20
+
+**P0 S3*=— -> S3*=C, GO / NEEDS_EVIDENCE, PLAN_ONLY**, not an Index regrade or implementation. Original: https://github.com/agno-agi/agno/commit/e59ca576219e589136e53b6cff8d6677899cf95f, accepted Index: https://github.com/opensiro/vsm-harness-index/blob/8b6039a92b39e9ac9e02af8c9a99513d632c3684/assessments/ag/agno.md (included, historical A/A/A/—/—/—). Independently sealed before historical review: https://github.com/opensiro/upstream/issues/58#issuecomment-7042788169.
+
+**What could the user do if maintainers adopted this option?** Have a separately configured auditor inspect real task artifacts rather than trust the worker's statement, hold false or unknown task completion, return evidence for repair/reassignment, and only finalize upon re-audit. The parent still controls human approvals, safety policy and the optional configuration.
+
+Native already supports Team task routing/retry, judge evaluations, a quality-review Workflow and hooks; native issue #10935 on nested HumanReview is a separate original-maintainer correctness case, not this S3* construction. A native equivalent independent binding audit would falsify proposed GO; an unguardable sync/async/parallel/resume path would block it. Native Wave 4 tests NOT_RUN; costs/outcomes NOT_MEASURED. Old 24-case HumanReview reproduction is historical at a different source SHA. Historical vector is unchanged in six-function table above. Detailed [AI contract](constructor-sufficiency.md) and [canonical receipt](roadmap.md). No external/public fork publication.

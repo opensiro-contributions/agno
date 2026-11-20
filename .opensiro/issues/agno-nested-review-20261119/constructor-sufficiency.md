@@ -1,8 +1,8 @@
-# Agno — technical constructor sufficiency, independent v0.18 rerun
+# Agno — current Wave 4 S3* constructor sufficiency, past v0.18 reruns preserved
 
-**Target transition:** NO_QUALIFIED_C_TARGET
-**Proposal-stage decision:** NO_GO
-**Research disposition:** NO_USEFUL_CHANGE
+**Target transition:** S3*=— -> S3*=C
+**Proposal-stage decision:** GO
+**Research disposition:** NEEDS_EVIDENCE
 
 Read [roadmap.md](roadmap.md) for source pins and final decision and [issue.md](issue.md) for the user-facing six-function table. Do not infer C merely because historical S3* is not present.
 
@@ -76,3 +76,16 @@ with lawful binding feedback and a tested additional user benefit.
 Result: NO_GO / NO_QUALIFIED_C_TARGET, research NO_USEFUL_CHANGE for new C.
 Targeted execution PARTIAL_WITH_PINNED_EVIDENCE; original full suite/streaming/concurrency NOT_RUN,
 metrics NOT_MEASURED, no product code or external publication.
+
+
+## Current Wave 4 AI constructor contract — 2026-11-20
+
+**Target:** historical S3*=— -> proposed S3*=C, architectural GO / NEEDS_EVIDENCE, PLAN_ONLY. Original pinned https://github.com/agno-agi/agno/commit/e59ca576219e589136e53b6cff8d6677899cf95f; included Index https://github.com/opensiro/vsm-harness-index/blob/8b6039a92b39e9ac9e02af8c9a99513d632c3684/assessments/ag/agno.md. Earlier NO_GO and reproduced native HumanReview issue are distinct historical scopes, not erased.
+
+**Evidence/decision owner:** independent read-only auditor with a separate identity and objective access to raw operational artifacts, terminal receipts and untrusted worker claims. It returns PASS/REWORK/UNKNOWN with evidence references; untrusted member/Team leader cannot self-certify. Human parent sets configuration/authority, owns S5/HITL and approves all reserved actions.
+
+**Effect/return:** add optional original-native audit seam at [Team task tools](https://github.com/agno-agi/agno/blob/e59ca576219e589136e53b6cff8d6677899cf95f/libs/agno/agno/team/_task_tools.py) and durable task/run storage [TaskList](https://github.com/agno-agi/agno/blob/e59ca576219e589136e53b6cff8d6677899cf95f/libs/agno/agno/team/task.py). Gate both individual task status and mark_all_complete/all-terminal exit on independently verified PASS; REWORK/UNKNOWN holds completion and returns findings to S3 to fix or reassign and submit fresh evidence for re-audit. Fail closed on missing/stale/untrusted receipt, partial remote streams, races, resume, parallel and nested/async variants. Existing AgentAsJudgeEval, read-only Codex/Workflow review, hooks, open #9084/#11537, original issue #10935 and proposed PR #11721 are source-native comparator/repair paths, not assumed equivalent independent S3* closure.
+
+**Tests to execute later:** A0 existing Team and A1 judge/post-hook baseline; B1 false worker success contradicted by original raw artifact, hold/repair/re-audit; B2 valid independently observed artifact permits completion; B3 missing/forged/partial receipt must never PASS; B4 sync/async/parallel/nested/resumed/cancel/human-approval edges cannot evade gate. No new native test was executed in this Wave 4; no cost, quality or product-need claim measured. Historical 24-case #10935 repro belongs to older native defect, not evidence of new S3* performance.
+
+**Falsifier:** equivalent first-party independently owned raw-evidence decision already binds the same Team completion path, or distinct decision/evidence + mandatory feedback cannot be constructed without unacceptable bypass/authority transfer. P0 constructibility GO, P1 tests/authority, P2 optional integrations. Maintainer retains final product adoption decision. Human [issue.md](issue.md) and canonical [roadmap.md](roadmap.md) use the same new Wave 4 decision.
